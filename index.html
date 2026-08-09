@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Ins 风小手机 UI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="phone-container" id="phoneContainer">
+        <!-- 页面 1: 锁屏界面 -->
+        <div class="page page-1 active" id="page1">
+            <div class="lock-screen">
+                <div class="lock-content">
+                    <div class="date-info" id="dateInfo"></div>
+                    <div class="time-info" id="timeInfo"></div>
+                    <div class="subtitle">喜欢你呀</div>
+                </div>
+                <div class="lock-bottom">
+                    <div class="paw-print left" aria-hidden="true"></div>
+                    <div class="lock-bar"></div>
+                    <div class="paw-print right" aria-hidden="true"></div>
+                </div>
+                <div class="tap-hint">点击屏幕解锁</div>
+            </div>
+        </div>
+
+        <!-- 页面 2: 密码输入界面 -->
+        <div class="page page-2" id="page2">
+            <div class="password-screen">
+                <div class="password-indicators" id="passwordIndicators">
+                    <div class="indicator" data-index="0"></div>
+                    <div class="indicator" data-index="1"></div>
+                    <div class="indicator" data-index="2"></div>
+                    <div class="indicator" data-index="3"></div>
+                </div>
+                <div class="password-keypad" id="passwordKeypad">
+                    <div class="key" data-value="1">1</div>
+                    <div class="key" data-value="2">2</div>
+                    <div class="key" data-value="3">3</div>
+                    <div class="key" data-value="4">4</div>
+                    <div class="key" data-value="5">5</div>
+                    <div class="key" data-value="6">6</div>
+                    <div class="key" data-value="7">7</div>
+                    <div class="key" data-value="8">8</div>
+                    <div class="key" data-value="9">9</div>
+                    <div class="key key-cancel" data-value="cancel">取消</div>
+                    <div class="key" data-value="0">0</div>
+                    <div class="key key-backspace" data-value="backspace">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path>
+                            <line x1="18" y1="9" x2="12" y2="15"></line>
+                            <line x1="12" y1="9" x2="18" y2="15"></line>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 页面 3: 桌面第一页 -->
+        <div class="page page-3" id="page3">
+            <div class="desktop-screen" id="desktop1">
+                <div class="desktop-grid">
+                    <!-- 顶部宽条 - 大方块 -->
+                    <div class="widget widget-wide widget-image" data-widget="top-wide-1">
+                        <input type="file" accept="image/*" class="file-input" hidden>
+                        <div class="widget-placeholder">点击上传图片</div>
+                        <img class="widget-image-preview" alt="上传的图片">
+                    </div>
+
+                    <!-- 中间左侧: 2x2 小方块 -->
+                    <div class="widget widget-small" style="--i: 0"><span class="widget-label">#1 占位应用</span></div>
+                    <div class="widget widget-small" style="--i: 1"><span class="widget-label">#2 占位应用</span></div>
+                    <div class="widget widget-small" style="--i: 2"><span class="widget-label">#3 占位应用</span></div>
+                    <div class="widget widget-small" style="--i: 3"><span class="widget-label">#4 占位应用</span></div>
+
+                    <!-- 中间右侧: 竖长大方块 -->
+                    <div class="widget widget-tall widget-image" data-widget="mid-tall-1">
+                        <input type="file" accept="image/*" class="file-input" hidden>
+                        <div class="widget-placeholder">点击上传图片</div>
+                        <img class="widget-image-preview" alt="上传的图片">
+                    </div>
+
+                    <!-- 下方左侧: 竖长大方块 -->
+                    <div class="widget widget-tall widget-image" data-widget="bot-tall-1">
+                        <input type="file" accept="image/*" class="file-input" hidden>
+                        <div class="widget-placeholder">点击上传图片</div>
+                        <img class="widget-image-preview" alt="上传的图片">
+                    </div>
+
+                    <!-- 下方右侧: 2x2 小方块 -->
+                    <div class="widget widget-small" style="--i: 4"><span class="widget-label">记忆</span></div>
+                    <div class="widget widget-small" style="--i: 5"><span class="widget-label">#6 占位应用</span></div>
+                    <div class="widget widget-small" style="--i: 6"><span class="widget-label">#7 占位应用</span></div>
+                    <div class="widget widget-small" style="--i: 7"><span class="widget-label">#8 占位应用</span></div>
+
+                    <!-- 底部 Dock: 4 个小方块横排 - 第一个为设置入口 -->
+                    <div class="widget widget-dock" style="--i: 0" data-dock-index="0"><span class="widget-label">设置</span></div>
+                    <div class="widget widget-dock" style="--i: 1" data-dock-index="1"><span class="widget-label">人设</span></div>
+                    <div class="widget widget-dock" style="--i: 2" data-dock-index="2"><span class="widget-label">#11 占位应用</span></div>
+                    <div class="widget widget-dock" style="--i: 3" data-dock-index="3"><span class="widget-label">WeChat</span></div>
+                </div>
+                <div class="page-indicator">
+                    <span class="dot active" data-page="0"></span>
+                    <span class="dot" data-page="1"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 页面 4: 桌面第二页 -->
+        <div class="page page-4" id="page4">
+            <div class="desktop-screen" id="desktop2">
+                <div class="desktop-grid">
+                    <!-- 顶部: 2个大方块各50% -->
+                    <div class="widget widget-half widget-image" data-widget="top-left-2">
+                        <input type="file" accept="image/*" class="file-input" hidden>
+                        <div class="widget-placeholder">点击上传图片</div>
+                        <img class="widget-image-preview" alt="上传的图片">
+                    </div>
+                    <div class="widget widget-half widget-image" data-widget="top-right-2">
+                        <input type="file" accept="image/*" class="file-input" hidden>
+                        <div class="widget-placeholder">点击上传图片</div>
+                        <img class="widget-image-preview" alt="上传的图片">
+                    </div>
+
+                    <!-- 中间左侧: 2x2 小方块 -->
+                    <div class="widget widget-small" style="--i: 8"><span class="widget-label">#13 占位应用</span></div>
+                    <div class="widget widget-small" style="--i: 9"><span class="widget-label">#14 占位应用</span></div>
+                    <div class="widget widget-small" style="--i: 10"><span class="widget-label">#15 占位应用</span></div>
+                    <div class="widget widget-small" style="--i: 11"><span class="widget-label">#16 占位应用</span></div>
+
+                    <!-- 中间右侧: 竖长大方块 -->
+                    <div class="widget widget-tall widget-image" data-widget="mid-tall-2">
+                        <input type="file" accept="image/*" class="file-input" hidden>
+                        <div class="widget-placeholder">点击上传图片</div>
+                        <img class="widget-image-preview" alt="上传的图片">
+                    </div>
+
+                    <!-- 下方左侧: 竖长大方块 -->
+                    <div class="widget widget-tall widget-image" data-widget="bot-tall-2">
+                        <input type="file" accept="image/*" class="file-input" hidden>
+                        <div class="widget-placeholder">点击上传图片</div>
+                        <img class="widget-image-preview" alt="上传的图片">
+                    </div>
+
+                    <!-- 下方右侧: 2x2 小方块 -->
+                    <div class="widget widget-small" style="--i: 12"><span class="widget-label">#17 占位应用</span></div>
+                    <div class="widget widget-small" style="--i: 13"><span class="widget-label">#18 占位应用</span></div>
+                    <div class="widget widget-small" style="--i: 14"><span class="widget-label">#19 占位应用</span></div>
+                    <div class="widget widget-small" style="--i: 15"><span class="widget-label">#20 占位应用</span></div>
+
+                    <!-- 底部 Dock: 4 个小方块横排 -->
+                    <div class="widget widget-dock" style="--i: 4" data-dock-index="4"><span class="widget-label">#21 占位应用</span></div>
+                    <div class="widget widget-dock" style="--i: 5" data-dock-index="5"><span class="widget-label">#22 占位应用</span></div>
+                    <div class="widget widget-dock" style="--i: 6" data-dock-index="6"><span class="widget-label">#23 占位应用</span></div>
+                    <div class="widget widget-dock" style="--i: 7" data-dock-index="7"><span class="widget-label">#24 占位应用</span></div>
+                </div>
+                <div class="page-indicator">
+                    <span class="dot" data-page="0"></span>
+                    <span class="dot active" data-page="1"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 页面 5: 设置页面 -->
+        <div class="page page-5" id="page5">
+            <div class="settings-screen">
+                <header class="settings-nav">
+                    <button class="settings-back" id="settingsBack" aria-label="返回">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 12H5"></path>
+                            <path d="M12 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <h1 class="settings-title">设置</h1>
+                    <div class="settings-nav-spacer"></div>
+                </header>
+                <main class="settings-content" id="settingsContent">
+                    <section class="settings-section">
+                        <div class="settings-card" data-setting="api">
+                            <div class="settings-card-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                    <path d="M16 12h-8"></path>
+                                    <path d="M12 8v8"></path>
+                                </svg>
+                            </div>
+                            <span class="settings-card-text">api设置</span>
+                            <svg class="settings-card-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 18l6-6-6-6"></path>
+                            </svg>
+                        </div>
+                        <div class="settings-card" data-setting="wallpaper">
+                            <div class="settings-card-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                    <path d="M7 12l5 5 10-10"></path>
+                                </svg>
+                            </div>
+                            <span class="settings-card-text">壁纸设置</span>
+                            <svg class="settings-card-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 18l6-6-6-6"></path>
+                            </svg>
+                        </div>
+                        <div class="settings-card" data-setting="icon">
+                            <div class="settings-card-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </div>
+                            <span class="settings-card-text">图标替换</span>
+                            <svg class="settings-card-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 18l6-6-6-6"></path>
+                            </svg>
+                        </div>
+                        <div class="settings-card" data-setting="backup">
+                            <div class="settings-card-icon backup-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                    <path d="M12 15v4"></path>
+                                    <path d="M9 18h6"></path>
+                                </svg>
+                            </div>
+                            <span class="settings-card-text">备份管理</span>
+                            <svg class="settings-card-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 18l6-6-6-6"></path>
+                            </svg>
+                        </div>
+                    </section>
+                    <section class="settings-section settings-reserved-section">
+                        <div class="settings-card reserved-card">
+                            <span class="reserved-text">（预留内容区）</span>
+                        </div>
+                        <div class="settings-card reserved-card">
+                            <span class="reserved-text">（预留内容区）</span>
+                        </div>
+                        <div class="settings-card reserved-card">
+                            <span class="reserved-text">（预留内容区）</span>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+
+        <!-- 页面 6: API 设置页面 -->
+        <div class="page page-6" id="page6">
+            <div class="api-settings-screen">
+                <header class="api-settings-nav">
+                    <button class="api-settings-back" id="apiSettingsBack" aria-label="返回">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 12H5"></path>
+                            <path d="M12 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <h1 class="api-settings-title">API 设置</h1>
+                    <button class="api-settings-save" id="apiSettingsSave" aria-label="保存配置" title="保存到聊天">
+                        <span class="api-settings-save-icon">✨</span>
+                    </button>
+                </header>
+                <div class="api-settings-divider"></div>
+                <main class="api-settings-content" id="apiSettingsContent">
+                    <section class="api-settings-section">
+                        <div class="api-settings-card">
+                            <div class="api-card-header">
+                                <h2 class="api-card-title">预设名称</h2>
+                            </div>
+                            <div class="api-card-input-wrapper">
+                                <input type="text" class="api-input" id="apiPresetNameInput" placeholder="请输入当前配置的预设名称" autocomplete="off">
+                            </div>
+                        </div>
+                    </section>
+                    <section class="api-settings-section">
+                        <div class="api-settings-card">
+                            <div class="api-card-header">
+                                <h2 class="api-card-title">API 网址</h2>
+                            </div>
+                            <div class="api-card-input-wrapper">
+                                <input type="url" class="api-input" id="apiUrlInput" placeholder="请输入 API 网址" autocomplete="off">
+                            </div>
+                        </div>
+                    </section>
+                    <section class="api-settings-section">
+                        <div class="api-settings-card">
+                            <div class="api-card-header">
+                                <h2 class="api-card-title">API 密钥</h2>
+                            </div>
+                            <div class="api-card-input-wrapper api-input-wrapper">
+                                <input type="password" class="api-input" id="apiKeyInput" placeholder="请输入 API 密钥" autocomplete="off">
+                                <button type="button" class="api-input-toggle" id="apiKeyToggle" aria-label="显示/隐藏密码">
+                                    <svg class="icon-eye-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                    <svg class="icon-eye-closed" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                                        <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                                        <line x1="1" y1="1" x2="23" y2="23"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="api-settings-section">
+                        <div class="api-settings-card">
+                            <div class="api-card-header">
+                                <h2 class="api-card-title">模型</h2>
+                                <button class="api-fetch-btn" id="fetchModelsBtn">拉取模型</button>
+                            </div>
+                            <div class="api-card-input-wrapper">
+                                <select class="api-input api-select" id="apiModelSelect" autocomplete="off">
+                                    <option value="">请选择模型</option>
+                                </select>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="api-settings-section">
+                        <div class="api-settings-card">
+                            <div class="api-card-header">
+                                <h2 class="api-card-title">温度</h2>
+                                <span class="api-temp-value" id="tempValue">0.7</span>
+                            </div>
+                            <div class="api-slider-wrapper">
+                                <input type="range" class="api-slider" id="tempSlider" min="0" max="2" step="0.1" value="0.7">
+                            </div>
+                        </div>
+                    </section>
+                    <section class="api-settings-section api-preset-section">
+                        <div class="api-preset-card">
+                            <div class="api-preset-left">
+                                <span class="api-preset-label">预存 API 配置</span>
+                            </div>
+                            <div class="api-preset-right">
+                                <select class="api-preset-select" id="presetSelect">
+                                    <option value="">请选择预设...</option>
+                                </select>
+                                <div class="api-preset-btn-group">
+                                    <button class="api-preset-btn api-preset-btn-save" id="savePresetBtn">保存当前配置</button>
+                                    <button class="api-preset-btn api-preset-btn-delete" id="deletePresetBtn">删除所选配置</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+
+        <!-- 页面 7: 人设列表页 (Char人设 - 主界面) -->
+        <div class="page page-7" id="page7">
+            <div class="persona-screen">
+                <header class="persona-nav">
+                    <button class="persona-back" id="rensheBack" aria-label="返回">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 12H5"></path>
+                            <path d="M12 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <h1 class="persona-title">人设</h1>
+                    <button class="persona-add-btn" id="rensheAddBtn" aria-label="新增人设">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </button>
+                </header>
+                <div class="persona-divider"></div>
+                <main class="persona-content" id="personaContent">
+                    <div class="persona-empty" id="rensheEmpty">
+                        <svg class="persona-empty-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <p class="persona-empty-text">暂无人设，点击右上角 + 添加</p>
+                    </div>
+                    <div class="persona-list" id="rensheList" style="display: none;"></div>
+                </main>
+            </div>
+        </div>
+
+        <!-- 页面 8: 人设详情页（新增/编辑 Char人设） -->
+        <div class="page page-8" id="page8">
+            <div class="persona-detail-screen">
+                <header class="persona-detail-nav">
+                    <button class="persona-detail-back" id="rensheDetailBack" aria-label="返回">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 12H5"></path>
+                            <path d="M12 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <h1 class="persona-detail-title">详细信息</h1>
+                    <button class="persona-detail-save" id="rensheDetailSave">保存</button>
+                </header>
+                <div class="persona-detail-divider"></div>
+                <main class="persona-detail-content" id="personaDetailContent">
+                <form class="persona-form" id="rensheForm">
+                    <!-- 头像上传区 -->
+                    <div class="persona-form-section persona-avatar-section">
+                        <div class="persona-avatar-wrapper">
+                            <div class="persona-avatar-preview" id="rensheAvatarPreview">
+                                <svg class="persona-avatar-placeholder" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                            <input type="file" accept="image/*" class="persona-avatar-input" id="rensheAvatarInput" hidden>
+                        </div>
+                    </div>
+
+                    <!-- 基础信息 - 每行一个 -->
+                    <div class="persona-form-section">
+                        <label class="persona-form-label" for="rensheNameInput">名字</label>
+                        <input type="text" class="persona-input" id="rensheNameInput" placeholder="请输入名字" autocomplete="off" required>
+                    </div>
+                    <div class="persona-form-section">
+                        <label class="persona-form-label" for="rensheWechatInput">微信号</label>
+                        <input type="text" class="persona-input" id="rensheWechatInput" placeholder="请输入微信号" autocomplete="off">
+                    </div>
+                    <div class="persona-form-section">
+                        <label class="persona-form-label" for="rensheGenderInput">性别</label>
+                        <input type="text" class="persona-input" id="rensheGenderInput" placeholder="例如：男" autocomplete="off">
+                    </div>
+                    <div class="persona-form-section">
+                        <label class="persona-form-label" for="rensheAgeInput">年龄</label>
+                        <input type="text" class="persona-input" id="rensheAgeInput" placeholder="例如：500+" autocomplete="off">
+                    </div>
+                    <div class="persona-form-section">
+                        <label class="persona-form-label" for="rensheAddressInput">住址</label>
+                        <input type="text" class="persona-input" id="rensheAddressInput" placeholder="例如：璃月港" autocomplete="off">
+                    </div>
+                    <div class="persona-form-section">
+                        <label class="persona-form-label" for="rensheBirthdayInput">生日</label>
+                        <input type="text" class="persona-input" id="rensheBirthdayInput" placeholder="例如：0103" autocomplete="off">
+                    </div>
+
+                    <div class="persona-form-section">
+                        <label class="persona-form-label" for="rensheDescInput">详细人设</label>
+                        <textarea class="persona-textarea" id="rensheDescInput" placeholder="请输入详细人设描述..." autocomplete="off"></textarea>
+                    </div>
+                    <div class="persona-form-section">
+                        <label class="persona-form-label">选取世界书</label>
+                        <div class="persona-worldbook-placeholder" id="worldbookPlaceholder">
+                            <span class="persona-placeholder-text">（占位符：世界书选择逻辑后续添加）</span>
+                        </div>
+                    </div>
+
+                    <!-- 删除人设按钮区域 -->
+                    <div class="persona-form-section persona-delete-section">
+                        <button class="persona-delete-btn" id="rensheDeleteBtn" type="button">
+                            <span class="persona-delete-icon">🗑️</span>
+                            <span class="persona-delete-text">删除人设</span>
+                        </button>
+                    </div>
+                </form>
+            </main>
+            </div>
+        </div>
+
+        <!-- 页面 9: WeChat 页面 -->
+        <div class="page page-9" id="page9">
+            <div class="wechat-screen">
+                <header class="wechat-nav">
+                    <button class="wechat-back" id="wechatBack" aria-label="返回">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 12H5"></path>
+                            <path d="M12 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <h1 class="wechat-title" id="wechatTitle">WeChat</h1>
+                    <button class="wechat-add-btn" id="wechatAddBtn" aria-label="更多功能" style="display: none;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </button>
+                </header>
+                
+                <!-- 通讯录加号弹窗 -->
+                <div class="contacts-add-modal" id="contactsAddModal" hidden>
+                    <div class="contacts-add-modal-backdrop"></div>
+                    <div class="contacts-add-modal-panel">
+                        <div class="contacts-add-modal-item" id="modalAddFriend">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="8.5" cy="7" r="4"></circle>
+                                <line x1="20" y1="8" x2="20" y2="14"></line>
+                                <line x1="23" y1="11" x2="17" y2="11"></line>
+                            </svg>
+                            <span>添加好友</span>
+                        </div>
+                        <div class="contacts-add-modal-divider"></div>
+                        <div class="contacts-add-modal-item" id="modalGroupChat">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                            <span>发起群聊</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="wechat-divider"></div>
+                <main class="wechat-content" id="wechatContent">
+                    <div class="wechat-empty" id="wechatEmpty">
+                        <p class="wechat-empty-text">暂无聊天，请先在通讯录添加好友</p>
+                    </div>
+                </main>
+                <footer class="wechat-tabbar">
+                    <div class="wechat-tabbar-divider"></div>
+                    <div class="wechat-tabs">
+                        <button class="wechat-tab active" data-tab="wechat" id="tabWechat">
+                            <div class="wechat-tab-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                            </div>
+                            <span class="wechat-tab-text">WeChat</span>
+                        </button>
+                        <button class="wechat-tab" data-tab="contacts" id="tabContacts">
+                            <div class="wechat-tab-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                            <span class="wechat-tab-text">通讯录</span>
+                        </button>
+                        <button class="wechat-tab" data-tab="moments" id="tabMoments">
+                            <div class="wechat-tab-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                    <path d="M16 12h-8"></path>
+                                    <path d="M12 8v8"></path>
+                                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                    <circle cx="15.5" cy="15.5" r="1.5"></circle>
+                                </svg>
+                            </div>
+                            <span class="wechat-tab-text">朋友圈</span>
+                        </button>
+                        <button class="wechat-tab" data-tab="me" id="tabMe">
+                            <div class="wechat-tab-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                            <span class="wechat-tab-text">我</span>
+                        </button>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+        <!-- 页面: 添加好友搜索页 -->
+        <div class="page" id="pageAddFriend">
+            <div class="add-friend-screen">
+                <header class="add-friend-nav">
+                    <button class="add-friend-back" id="addFriendBack" aria-label="返回">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 12H5"></path>
+                            <path d="M12 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <h1 class="add-friend-title">添加好友</h1>
+                </header>
+                <div class="add-friend-divider"></div>
+                <main class="add-friend-content">
+                    <div class="search-box-wrapper">
+                        <div class="search-box">
+                            <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                            <input type="text" id="addFriendSearchInput" class="search-input" placeholder="请输入微信号搜索" autocomplete="off" spellcheck="false">
+                            <button class="search-clear-btn" id="searchClearBtn" hidden aria-label="清空">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="search-result" id="searchResult" hidden>
+                        <div class="result-card">
+                            <div class="result-avatar" id="resultAvatar"></div>
+                            <div class="result-info">
+                                <div class="result-name" id="resultName"></div>
+                                <div class="result-wechat" id="resultWechat"></div>
+                            </div>
+                            <button class="result-add-btn" id="resultAddBtn">添加</button>
+                        </div>
+                    </div>
+                    <div class="search-empty" id="searchEmpty" hidden>
+                        <svg class="empty-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <p class="empty-text">未找到该用户</p>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <!-- 页面 10: WeChat 聊天详情页面 -->
+        <div class="page page-10" id="page10">
+            <div class="chat-screen">
+                <header class="chat-nav">
+                    <button class="chat-back" id="chatBack" aria-label="返回">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 12H5"></path>
+                            <path d="M12 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <h1 class="chat-title" id="chatTitle">名字</h1>
+                    <button class="chat-avatar-btn" id="chatAvatarBtn" aria-label="聊天设置">
+                        <span class="chat-avatar-icon">🌸</span>
+                    </button>
+                </header>
+                <div class="chat-divider"></div>
+                <main class="chat-content" id="chatContent">
+                    <div class="chat-messages" id="chatMessages"></div>
+                    <div class="chat-welcome" id="chatWelcome">
+                        <p class="chat-welcome-text">开始与 <span id="chatWelcomeName">名字</span> 聊天吧</p>
+                    </div>
+                </main>
+                <footer class="chat-inputbar">
+                    <div class="chat-inputbar-divider"></div>
+                    <div class="chat-input-wrapper">
+                        <button class="chat-btn chat-btn-ai" id="chatAiBtn" aria-label="AI 杜甫">
+                            <span class="chat-btn-icon">❤️</span>
+                        </button>
+                        <div class="chat-input-group">
+                            <input type="text" class="chat-input" id="chatInput" placeholder="输入消息..." autocomplete="off" spellcheck="false">
+                            <button class="chat-btn chat-btn-inner" id="chatInnerBtn" aria-label="心声" title="心声">
+                                <span class="chat-btn-icon">🩷+</span>
+                            </button>
+                        </div>
+                        <button class="chat-btn chat-btn-extend" id="chatExtendBtn" aria-label="拓展功能">
+                            <span class="chat-btn-icon">➕</span>
+                        </button>
+                        <button class="chat-btn chat-btn-send" id="chatSendBtn" aria-label="发送">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                        </button>
+                    </div>
+                </footer>
+
+                <!-- 拓展功能面板遮罩层 -->
+                <div class="chat-extend-backdrop" id="chatExtendBackdrop" hidden></div>
+                <!-- 拓展功能面板 -->
+                <div class="chat-extend-panel" id="chatExtendPanel" hidden>
+                    <div class="chat-extend-grid" id="chatExtendGrid">
+                        <!-- 第一行 -->
+                        <button class="chat-extend-item" data-type="emoji" data-action="emoji">
+                            <div class="chat-extend-icon-bg" style="background: #B6D8CE;">
+                                <svg class="chat-extend-icon" viewBox="0 0 24 24" fill="none" stroke="#3A5072" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                                    <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                                    <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                                </svg>
+                            </div>
+                            <span class="chat-extend-label">表情</span>
+                        </button>
+                        <button class="chat-extend-item" data-type="redPacket" data-action="redPacket">
+                            <div class="chat-extend-icon-bg" style="background: #F2C6CA;">
+                                <svg class="chat-extend-icon" viewBox="0 0 24 24" fill="none" stroke="#3A5072" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 12V7H5v7"></path>
+                                    <path d="M3 12h18"></path>
+                                    <path d="M7 12v8a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-8"></path>
+                                    <path d="M9 12h6"></path>
+                                </svg>
+                            </div>
+                            <span class="chat-extend-label">红包</span>
+                        </button>
+                        <button class="chat-extend-item" data-type="transfer" data-action="transfer">
+                            <div class="chat-extend-icon-bg" style="background: #F5E6E8;">
+                                <svg class="chat-extend-icon" viewBox="0 0 24 24" fill="none" stroke="#3A5072" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                </svg>
+                            </div>
+                            <span class="chat-extend-label">转账</span>
+                        </button>
+                        <button class="chat-extend-item" data-type="offline" data-action="offline">
+                            <div class="chat-extend-icon-bg" style="background: #C0B8F0;">
+                                <svg class="chat-extend-icon" viewBox="0 0 24 24" fill="none" stroke="#3A5072" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="2" width="20" height="20" rx="4" ry="4"></rect>
+                                    <path d="M8 12h8"></path>
+                                    <path d="M12 8v8"></path>
+                                </svg>
+                            </div>
+                            <span class="chat-extend-label">线下</span>
+                        </button>
+                        <button class="chat-extend-item" data-type="file" data-action="file">
+                            <div class="chat-extend-icon-bg" style="background: #EEC0C0;">
+                                <svg class="chat-extend-icon" viewBox="0 0 24 24" fill="none" stroke="#3A5072" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    <polyline points="10 9 9 9 8 9"></polyline>
+                                </svg>
+                            </div>
+                            <span class="chat-extend-label">文件</span>
+                        </button>
+
+                        <!-- 第二行 -->
+                        <button class="chat-extend-item" data-type="companion" data-action="companion">
+                            <div class="chat-extend-icon-bg" style="background: #B6C2E6;">
+                                <svg class="chat-extend-icon" viewBox="0 0 24 24" fill="none" stroke="#3A5072" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                    <path d="M12 15v4"></path>
+                                    <path d="M9 18h6"></path>
+                                </svg>
+                            </div>
+                            <span class="chat-extend-label">陪伴</span>
+                        </button>
+                        <button class="chat-extend-item chat-extend-placeholder" data-type="placeholder">
+                            <div class="chat-extend-icon-bg placeholder-bg">
+                                <svg class="chat-extend-icon placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="#A8C8E8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                            </div>
+                        </button>
+                        <button class="chat-extend-item chat-extend-placeholder" data-type="placeholder">
+                            <div class="chat-extend-icon-bg placeholder-bg">
+                                <svg class="chat-extend-icon placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="#A8C8E8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                            </div>
+                        </button>
+                        <button class="chat-extend-item chat-extend-placeholder" data-type="placeholder">
+                            <div class="chat-extend-icon-bg placeholder-bg">
+                                <svg class="chat-extend-icon placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="#A8C8E8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                            </div>
+                        </button>
+                        <button class="chat-extend-item chat-extend-placeholder" data-type="placeholder">
+                            <div class="chat-extend-icon-bg placeholder-bg">
+                                <svg class="chat-extend-icon placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="#A8C8E8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                            </div>
+                        </button>
+
+                        <!-- 第三行 -->
+                        <button class="chat-extend-item chat-extend-placeholder" data-type="placeholder">
+                            <div class="chat-extend-icon-bg placeholder-bg">
+                                <svg class="chat-extend-icon placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="#A8C8E8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                            </div>
+                        </button>
+                        <button class="chat-extend-item chat-extend-placeholder" data-type="placeholder">
+                            <div class="chat-extend-icon-bg placeholder-bg">
+                                <svg class="chat-extend-icon placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="#A8C8E8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                            </div>
+                        </button>
+                        <button class="chat-extend-item chat-extend-placeholder" data-type="placeholder">
+                            <div class="chat-extend-icon-bg placeholder-bg">
+                                <svg class="chat-extend-icon placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="#A8C8E8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                            </div>
+                        </button>
+                        <button class="chat-extend-item chat-extend-placeholder" data-type="placeholder">
+                            <div class="chat-extend-icon-bg placeholder-bg">
+                                <svg class="chat-extend-icon placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="#A8C8E8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                            </div>
+                        </button>
+                        <button class="chat-extend-item chat-extend-placeholder" data-type="placeholder">
+                            <div class="chat-extend-icon-bg placeholder-bg">
+                                <svg class="chat-extend-icon placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="#A8C8E8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 页面 11: 聊天设置页面 -->
+        <div class="page page-11" id="page11">
+            <div class="chat-settings-screen">
+                <header class="chat-settings-nav">
+                    <button class="chat-settings-back" id="chatSettingsBack" aria-label="返回">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 12H5"></path>
+                            <path d="M12 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <h1 class="chat-settings-title">聊天设置</h1>
+                    <button class="chat-settings-save" id="chatSettingsSave" aria-label="保存设置">保存</button>
+                </header>
+                <div class="chat-settings-divider"></div>
+                <main class="chat-settings-content" id="chatSettingsContent">
+                    <section class="chat-settings-section">
+                        <div class="chat-settings-card">
+                            <div class="chat-settings-card-left">
+                                <span class="chat-settings-label">备注</span>
+                            </div>
+                            <div class="chat-settings-card-right">
+                                <input type="text" class="chat-settings-input" id="chatRemarkInput" placeholder="请输入备注" autocomplete="off">
+                            </div>
+                        </div>
+                    </section>
+                    <section class="chat-settings-section">
+                        <div class="chat-settings-card">
+                            <div class="chat-settings-card-left">
+                                <span class="chat-settings-label">聊天背景</span>
+                            </div>
+                            <div class="chat-settings-card-right">
+                                <button class="chat-settings-btn" id="chatBgSelectBtn">选择图片</button>
+                                <input type="file" accept="image/*" class="chat-settings-file-input" id="chatBgFileInput" hidden>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="chat-settings-section">
+                        <div class="chat-settings-card">
+                            <div class="chat-settings-card-left">
+                                <span class="chat-settings-label">内心想法开关</span>
+                            </div>
+                            <div class="chat-settings-card-right">
+                                <label class="toggle-switch" id="innerThoughtToggle">
+                                    <input type="checkbox" class="toggle-input" id="innerThoughtInput">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 1. AI 感知时间开关 -->
+                    <section class="chat-settings-section">
+                        <div class="chat-settings-card">
+                            <div class="chat-settings-card-left">
+                                <span class="chat-settings-label">AI 感知时间</span>
+                            </div>
+                            <div class="chat-settings-card-right">
+                                <label class="toggle-switch" id="timeAwareToggle">
+                                    <input type="checkbox" class="toggle-input" id="timeAwareInput">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 2. 聊天文字颜色与透明度 -->
+                    <section class="chat-settings-section">
+                        <div class="chat-settings-card">
+                            <div class="chat-settings-card-left">
+                                <span class="chat-settings-label">聊天文字</span>
+                            </div>
+                            <div class="chat-settings-card-right chat-settings-color-row">
+                                <input type="color" class="chat-settings-color-input" id="fontColorInput" value="#3A5072" title="文字颜色">
+                                <input type="range" class="chat-settings-opacity-slider" id="fontOpacitySlider" min="0.1" max="1" step="0.1" value="1">
+                                <span class="chat-settings-opacity-value" id="fontOpacityValue">1.0</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 3. Char / User 气泡背景颜色与透明度 -->
+                    <section class="chat-settings-section">
+                        <div class="chat-settings-card chat-settings-bubble-card">
+                            <div class="chat-settings-bubble-row">
+                                <div class="chat-settings-bubble-col">
+                                    <span class="chat-settings-bubble-label">Char 气泡</span>
+                                    <div class="chat-settings-color-row">
+                                        <input type="color" class="chat-settings-color-input" id="charBubbleColorInput" value="#D5DCE0" title="Char气泡颜色">
+                                        <input type="range" class="chat-settings-opacity-slider" id="charBubbleOpacitySlider" min="0.1" max="1" step="0.1" value="1">
+                                        <span class="chat-settings-opacity-value" id="charBubbleOpacityValue">1.0</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chat-settings-bubble-row">
+                                <div class="chat-settings-bubble-col">
+                                    <span class="chat-settings-bubble-label">User 气泡</span>
+                                    <div class="chat-settings-color-row">
+                                        <input type="color" class="chat-settings-color-input" id="userBubbleColorInput" value="#FAF5F0" title="User气泡颜色">
+                                        <input type="range" class="chat-settings-opacity-slider" id="userBubbleOpacitySlider" min="0.1" max="1" step="0.1" value="1">
+                                        <span class="chat-settings-opacity-value" id="userBubbleOpacityValue">1.0</span>
+</div>
+                </div>
+
+                <!-- 长按消息操作菜单 -->
+                <div class="chat-action-menu" id="chatActionMenu" hidden>
+                    <button class="chat-action-item" data-action="regenerate" aria-label="重新生成">
+                        <div class="chat-action-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="1 4 1 10 7 10"></polyline>
+                                <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+                            </svg>
+                        </div>
+                        <span class="chat-action-label">重回</span>
+                    </button>
+                    <button class="chat-action-item chat-action-delete" data-action="delete" aria-label="删除">
+                        <div class="chat-action-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="3 6 5 6 21 6"></polyline>
+                                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                            </svg>
+                        </div>
+                        <span class="chat-action-label">删除</span>
+                    </button>
+                    <button class="chat-action-item" data-action="quote" aria-label="引用">
+                        <div class="chat-action-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1H3v2z"></path>
+                                <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3"></path>
+                            </svg>
+                        </div>
+                        <span class="chat-action-label">引用</span>
+                    </button>
+                    <button class="chat-action-item chat-action-placeholder" data-action="format" aria-label="修改格式">
+                        <div class="chat-action-icon">
+                            <span>...</span>
+                        </div>
+                        <span class="chat-action-label">格式</span>
+                    </button>
+                </div>
+
+                <!-- 引用回复区域 -->
+                <div class="chat-quote-bar" id="chatQuoteBar" hidden>
+                    <div class="chat-quote-content">
+                        <div class="chat-quote-header">
+                            <span class="chat-quote-sender" id="chatQuoteSender"></span>
+                            <button class="chat-quote-close" id="chatQuoteClose" aria-label="取消引用">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                </svg>
+                            </button>
+                        </div>
+                        <span class="chat-quote-text" id="chatQuoteText"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+                    </section>
+
+                    <section class="chat-settings-section">
+                        <div class="chat-settings-card">
+                            <div class="chat-settings-card-left">
+                                <span class="chat-settings-label">上下文条数</span>
+                            </div>
+                            <div class="chat-settings-card-right">
+                                <div class="stepper" id="contextStepper">
+                                    <button class="stepper-btn stepper-decrease" id="contextDecrease" aria-label="减少">−</button>
+                                    <input type="number" class="stepper-input" id="contextCountInput" value="10" min="1" max="500" autocomplete="off">
+                                    <button class="stepper-btn stepper-increase" id="contextIncrease" aria-label="增加">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="chat-settings-section">
+                        <div class="chat-settings-card">
+                            <div class="chat-settings-card-left">
+                                <span class="chat-settings-label">自动总结条数</span>
+                            </div>
+                            <div class="chat-settings-card-right">
+                                <input type="number" class="chat-settings-input" id="autoSummaryInput" value="50" min="1" max="1000" placeholder="达到条数自动总结" autocomplete="off">
+                            </div>
+                        </div>
+                    </section>
+                    <section class="chat-settings-section">
+                        <div class="chat-settings-card">
+                            <div class="chat-settings-card-left">
+                                <span class="chat-settings-label">记忆引用条数</span>
+                            </div>
+                            <div class="chat-settings-card-right">
+                                <input type="number" class="chat-settings-input" id="memoryRefInput" value="5" min="1" max="100" placeholder="引用记忆条数" autocomplete="off">
+                            </div>
+                        </div>
+                    </section>
+                    <section class="chat-settings-section chat-settings-last-section">
+                        <div class="chat-settings-card chat-settings-nav-card" id="openSearchHistoryBtn">
+                            <div class="chat-settings-card-left">
+                                <span class="chat-settings-label">查找聊天记录</span>
+                            </div>
+                            <div class="chat-settings-card-right">
+                                <svg class="chat-settings-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 18l6-6-6-6"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="chat-settings-section chat-settings-last-section">
+                        <div class="chat-settings-card chat-settings-delete-card" id="deleteChatHistoryBtn">
+                            <div class="chat-settings-card-left">
+                                <span class="chat-settings-label chat-settings-delete-label">删除聊天记录</span>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+
+        <!-- 页面 12: 查找聊天记录页面 -->
+        <div class="page page-12" id="page12">
+            <div class="search-history-screen">
+                <header class="search-history-nav">
+                    <button class="search-history-back" id="searchHistoryBack" aria-label="返回">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 12H5"></path>
+                            <path d="M12 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <h1 class="search-history-title">查找记录</h1>
+                    <div class="search-history-nav-spacer"></div>
+                </header>
+                <div class="search-history-divider"></div>
+                <main class="search-history-content" id="searchHistoryContent">
+                    <div class="search-history-search-wrapper">
+                        <div class="search-history-search-input-wrapper">
+                            <svg class="search-history-search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                            <input type="text" class="search-history-search-input" id="searchHistoryInput" placeholder="按日期或关键字搜索..." autocomplete="off" spellcheck="false">
+                        </div>
+                    </div>
+                    <div class="search-history-results" id="searchHistoryResults">
+                        <div class="search-history-empty" id="searchHistoryEmpty">
+                            <svg class="search-history-empty-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                            <p class="search-history-empty-text">（暂无搜索结果，输入关键字开始查找）</p>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+                <!-- 全新心声卡片模态框 -->
+        <div class="inner-thought-modal" id="innerThoughtModal" hidden>
+            <div class="inner-thought-backdrop" id="innerThoughtBackdrop"></div>
+            <div class="inner-thought-card">
+                <div class="thought-header">
+                    <div class="thought-avatar-box">
+                        <img id="thoughtAvatar" src="" alt="头像">
+                    </div>
+                    <div class="thought-info-box">
+                        <div class="thought-name" id="thoughtName"></div>
+                        <div class="thought-wechat"><span id="thoughtWechat"></span></div>
+                        <div class="thought-stats">
+                            <div class="thought-stat-item"><span>性别</span><span id="thoughtGender"></span></div>
+                            <div class="thought-stat-item"><span>年龄</span><span id="thoughtAge"></span></div>
+                            <div class="thought-stat-item"><span>住址</span><span id="thoughtAddress"></span></div>
+                            <div class="thought-stat-item"><span>生日</span><span id="thoughtBirthday"></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="thought-body">
+                    <div class="thought-section">
+                        <span class="section-label">外貌描写</span>
+                        <p id="thoughtAppearance"></p>
+                    </div>
+                    <div class="thought-section">
+                        <span class="section-label">动作描写</span>
+                        <p id="thoughtAction"></p>
+                    </div>
+                    <div class="thought-section">
+                        <span class="section-label">身体状态</span>
+                        <p id="thoughtPhysical"></p>
+                    </div>
+                    <div class="thought-section">
+                        <span class="section-label">表层心声</span>
+                        <p id="thoughtSurface"></p>
+                    </div>
+                    <div class="thought-section dark-thought">
+                        <span class="section-label">阴暗心声</span>
+                        <p id="thoughtDark"></p>
+                    </div>
+                    <div class="thought-section">
+                        <span class="section-label">内心吐槽</span>
+                        <p id="thoughtInner"></p>
+                    </div>
+</div>
+        </div>
+        <!-- 删除人设确认弹窗 -->
+        <div class="persona-delete-modal" id="personaDeleteModal" hidden>
+            <div class="persona-delete-backdrop" id="personaDeleteBackdrop"></div>
+            <div class="persona-delete-dialog">
+                <div class="persona-delete-dialog-header">
+                    <div class="persona-delete-dialog-icon">⚠️</div>
+                    <div class="persona-delete-dialog-title">删除人设</div>
+                </div>
+                <div class="persona-delete-dialog-body">
+                    <p class="persona-delete-dialog-message" id="personaDeleteMessage">确定要删除这个联系人吗？</p>
+                    <p class="persona-delete-dialog-warning" id="personaDeleteWarning">此操作不可撤销，请谨慎选择</p>
+                </div>
+                <div class="persona-delete-dialog-actions">
+                    <button class="persona-delete-dialog-btn persona-delete-btn-danger" id="personaDeleteWithMemoryBtn" type="button">
+                        <span>🗑️</span>
+                        <span>删除人设（包括聊天记忆）</span>
+                    </button>
+                    <button class="persona-delete-dialog-btn persona-delete-btn-secondary" id="personaDeleteKeepMemoryBtn" type="button">
+                        <span>💾</span>
+                        <span>删除人设（保留记忆）</span>
+                    </button>
+                    <button class="persona-delete-dialog-btn persona-delete-btn-cancel" id="personaDeleteCancelBtn" type="button">
+                        取消
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        </div> <!-- 这是 phone-container 的结束 -->
+
+        <!-- 页面 13: AI 记忆模块一级界面 - 人设列表 -->
+        <div class="page page-13" id="page13">
+            <div class="memory-screen">
+                <header class="memory-nav">
+                    <button class="memory-back" id="memoryBack" aria-label="返回">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 12H5"></path>
+                            <path d="M12 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <h1 class="memory-title">记忆</h1>
+                    <div class="memory-nav-spacer"></div>
+                </header>
+                <div class="memory-divider"></div>
+                <main class="memory-content" id="memoryContent">
+                    <div class="memory-empty" id="memoryEmpty">
+                        <svg class="memory-empty-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+                            <circle cx="12" cy="10" r="2"></circle>
+                        </svg>
+                        <p class="memory-empty-text">暂无角色，请先在「人设」中添加</p>
+                    </div>
+                    <div class="memory-list" id="memoryList" style="display: none;"></div>
+                </main>
+            </div>
+        </div>
+
+        <!-- 页面 14: AI 记忆模块二级界面 - 分类列表 -->
+        <div class="page page-14" id="page14">
+            <div class="memory-screen">
+                <header class="memory-nav">
+                    <button class="memory-back" id="categoryBack" aria-label="返回">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 12H5"></path>
+                            <path d="M12 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <h1 class="memory-title" id="categoryTitle">记忆分类</h1>
+                    <div class="memory-nav-spacer"></div>
+                </header>
+                <div class="memory-divider"></div>
+                <main class="memory-content" id="categoryContent">
+                    <div class="memory-list" id="categoryList"></div>
+                </main>
+            </div>
+        </div>
+
+        <!-- 页面 15: AI 记忆模块三级界面 - 记忆详情列表 -->
+        <div class="page page-15" id="page15">
+            <div class="memory-screen">
+                <header class="memory-nav">
+                    <button class="memory-back" id="detailBack" aria-label="返回">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 12H5"></path>
+                            <path d="M12 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <h1 class="memory-title" id="detailTitle">记忆详情</h1>
+                    <button class="memory-add-btn" id="detailAddBtn" aria-label="新增记忆">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+                            <circle cx="12" cy="10" r="2"></circle>
+                        </svg>
+                    </button>
+                </header>
+                <div class="memory-divider"></div>
+                <main class="memory-content" id="detailContent">
+                    <div class="memory-modal-empty" id="detailEmpty">
+                        <div class="memory-modal-empty-icon">🦋</div>
+                        <p>暂无记忆</p>
+                        <button class="memory-add-first-btn" id="detailAddFirstBtn">+ 新增第一条记忆</button>
+                    </div>
+                    <div class="memory-detail-list" id="detailList" style="display: none;"></div>
+                </main>
+            </div>
+        </div>
+
+        <!-- 记忆详情模态框 -->
+        <div class="memory-modal" id="memoryModal" hidden>
+            <div class="memory-modal-backdrop" id="memoryModalBackdrop"></div>
+            <div class="memory-modal-card">
+                <div class="memory-modal-header">
+                    <div class="memory-modal-title" id="memoryModalTitle"></div>
+                    <button class="memory-modal-close" id="memoryModalClose" aria-label="关闭">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+                <div class="memory-modal-divider"></div>
+                <div class="memory-modal-content" id="memoryModalContent"></div>
+            </div>
+        </div>
+
+        <!-- 新增/编辑记忆模态框 -->
+        <div class="memory-entry-modal" id="memoryEntryModal" hidden>
+            <div class="memory-entry-modal-backdrop" id="memoryEntryModalBackdrop"></div>
+            <div class="memory-entry-modal-card">
+                <div class="memory-entry-modal-header">
+                    <h2 class="memory-entry-modal-title" id="memoryEntryModalTitle">新增记忆</h2>
+                    <button class="memory-entry-modal-close" id="memoryEntryModalClose" aria-label="关闭">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+                <div class="memory-entry-modal-divider"></div>
+                <form class="memory-entry-form" id="memoryEntryForm">
+                    <div class="memory-entry-field">
+                        <label class="memory-entry-label" for="memoryEntryType">记忆类型</label>
+                        <select class="memory-entry-select" id="memoryEntryType" required>
+                            <!-- 选项由 JS 动态生成 -->
+                        </select>
+                    </div>
+                    <div class="memory-entry-field">
+                        <label class="memory-entry-label" for="memoryEntryContent">记忆内容</label>
+                        <textarea class="memory-entry-textarea" id="memoryEntryContent" placeholder="请输入记忆内容..." required></textarea>
+                    </div>
+                    <div class="memory-entry-field">
+                        <label class="memory-entry-label" for="memoryEntryKeywords">关键词 (用逗号分隔)</label>
+                        <input type="text" class="memory-entry-input" id="memoryEntryKeywords" placeholder="例如: 饮食偏好, 川菜, 过敏" autocomplete="off">
+                    </div>
+                    <div class="memory-entry-field">
+                        <label class="memory-entry-label" for="memoryEntryWeight">权重 (0.1 - 1.0)</label>
+                        <input type="number" class="memory-entry-input" id="memoryEntryWeight" min="0.1" max="1" step="0.1" value="1.0" autocomplete="off">
+                    </div>
+                    <div class="memory-entry-actions">
+                        <button type="button" class="memory-entry-btn memory-entry-btn-cancel" id="memoryEntryCancelBtn">取消</button>
+                        <button type="submit" class="memory-entry-btn memory-entry-btn-submit">保存</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- 页面 16: 壁纸设置页面 -->
+        <div class="page page-16" id="page16">
+            <div class="wallpaper-settings-screen">
+                <header class="wallpaper-settings-nav">
+                    <button class="wallpaper-settings-back" id="wallpaperSettingsBack" aria-label="返回">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 12H5"></path>
+                            <path d="M12 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <h1 class="wallpaper-settings-title">壁纸设置</h1>
+                    <button class="wallpaper-settings-save" id="wallpaperSettingsSave" aria-label="保存壁纸">保存</button>
+                </header>
+                <div class="wallpaper-settings-divider"></div>
+                <main class="wallpaper-settings-content" id="wallpaperSettingsContent">
+                    <div class="wallpaper-preview-section">
+                        <div class="wallpaper-preview" id="wallpaperPreview">
+                            <div class="wallpaper-preview-placeholder">预览区域</div>
+                        </div>
+                    </div>
+                    <div class="wallpaper-actions">
+                        <label class="wallpaper-upload-btn" id="wallpaperUploadLabel">
+                            <input type="file" accept="image/*" class="wallpaper-file-input" id="wallpaperFileInput" hidden>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            <span>选择本地图片</span>
+                        </label>
+                        <button class="wallpaper-clear-btn" id="wallpaperClearBtn" aria-label="清除壁纸">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                            <span>清除壁纸</span>
+                        </button>
+                    </div>
+                    <div class="wallpaper-tips">
+                        <p>支持 JPG/PNG/WebP 格式，建议分辨率 750x1334 以上</p>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <!-- 页面 17: 备份管理页面 -->
+        <div class="page page-17" id="page17">
+            <div class="backup-settings-screen">
+                <header class="backup-settings-nav">
+                    <button class="backup-settings-back" id="backupSettingsBack" aria-label="返回">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 12H5"></path>
+                            <path d="M12 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <h1 class="backup-settings-title">备份管理</h1>
+                    <div class="backup-settings-nav-spacer"></div>
+                </header>
+                <div class="backup-settings-divider"></div>
+                <main class="backup-settings-content" id="backupSettingsContent">
+                    <div class="backup-actions">
+                        <button class="backup-btn backup-btn-export" id="backupExportBtn">
+                            <svg class="backup-btn-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                            <span class="backup-btn-text">导出备份</span>
+                        </button>
+                        <button class="backup-btn backup-btn-import" id="backupImportBtn">
+                            <svg class="backup-btn-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            <span class="backup-btn-text">导入备份</span>
+                            <input type="file" accept=".json" class="backup-file-input" id="backupFileInput" hidden>
+                        </button>
+                    </div>
+                    <div class="backup-hint">
+                        <p>导出的文件为 .json 格式，导入将覆盖当前所有数据</p>
+                    </div>
+                    <div class="backup-last-modified" id="backupLastModified">
+                        <span class="backup-time-label">上次备份：</span>
+                        <span class="backup-time-value" id="backupTimeValue">—</span>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <!-- 页面: 新的朋友页面 -->
+        <div class="page" id="pageNewFriends">
+            <div class="new-friends-screen">
+                <header class="new-friends-nav">
+                    <button class="new-friends-back" id="newFriendsBack" aria-label="返回">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 12H5"></path>
+                            <path d="M12 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <h1 class="new-friends-title">新的朋友</h1>
+                </header>
+                <div class="new-friends-divider"></div>
+                <main class="new-friends-content" id="newFriendsContent">
+                    <!-- 好友申请列表将通过JS动态渲染 -->
+                </main>
+            </div>
+        </div>
+
+        <!-- 页面 18: WeChat 我的人设页面 (user人设) -->
+        <div class="page page-18" id="page18">
+            <div class="user-persona-screen">
+                <header class="user-persona-nav">
+                    <button class="user-persona-back" id="userPersonaBack" aria-label="返回">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 12H5"></path>
+                            <path d="M12 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <h1 class="user-persona-title">我的人设</h1>
+                    <button class="user-persona-save" id="userPersonaSave" aria-label="保存">保存</button>
+                </header>
+                <div class="user-persona-divider"></div>
+                <main class="user-persona-content" id="userPersonaContent">
+                    <!-- 头像区 -->
+                    <div class="user-persona-avatar-section">
+                        <div class="user-persona-avatar-wrapper">
+                            <div class="user-persona-avatar-preview" id="userPersonaAvatarPreview">
+                                <svg class="user-persona-avatar-placeholder" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                            <input type="file" accept="image/*" class="user-persona-avatar-input" id="userPersonaAvatarInput" hidden>
+                        </div>
+                    </div>
+
+                    <!-- 表单区 -->
+                    <div class="user-persona-form-section">
+                        <label class="user-persona-form-label" for="userPersonaNameInput">姓名</label>
+                        <input type="text" class="user-persona-input" id="userPersonaNameInput" placeholder="请输入姓名" autocomplete="off">
+                    </div>
+
+                    <div class="user-persona-form-section">
+                        <label class="user-persona-form-label" for="userPersonaDetailInput">详细人设</label>
+                        <textarea class="user-persona-textarea" id="userPersonaDetailInput" placeholder="请输入供 AI 参考的详细角色设定..." autocomplete="off"></textarea>
+                        <!-- 
+                            AI 读取人设逻辑提示：
+                            每次 AI 进行回复时，系统必须在 Prompt（提示词）的前缀或上下文中附加读取此字段的内容，
+                            以确保 AI 始终基于当前用户人设进行回复。
+                        -->
+                    </div>
+
+                    <!-- 底部功能区 -->
+                    <div class="user-persona-bottom-actions">
+                        <!-- 按钮1：设为默认人设 -->
+                        <button class="user-persona-action-btn" id="userPersonaDefaultBtn">
+                            <span class="user-persona-action-text">设为默认人设</span>
+                            <label class="user-persona-toggle-switch">
+                                <input type="checkbox" class="user-persona-toggle-input" id="userPersonaDefaultToggle">
+                                <span class="user-persona-toggle-slider"></span>
+                            </label>
+                        </button>
+                        <!-- 
+                            当此状态为开启时，该用户人设将全局生效，对所有聊天角色（Char）使用
+                        -->
+
+                        <!-- 按钮2：对特定用户使用 -->
+                        <button class="user-persona-action-btn" id="userPersonaSpecificBtn">
+                            <span class="user-persona-action-text">对特定用户使用</span>
+                            <svg class="user-persona-action-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </button>
+
+                        <!-- 按钮3：管理其他人设 -->
+                        <button class="user-persona-action-btn user-persona-action-btn-centered" id="userPersonaManageBtn">
+                            <span class="user-persona-action-text">管理其他人设</span>
+                        </button>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <!-- 页面: 联系人详情页 -->
+        <div class="page" id="pageContactDetail">
+            <div class="contact-detail-screen">
+                <header class="contact-detail-nav">
+                    <button class="contact-detail-back" id="contactDetailBack" aria-label="返回">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 12H5"></path>
+                            <path d="M12 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <h1 class="contact-detail-title" id="contactDetailTitle">他的名字</h1>
+                </header>
+                <div class="contact-detail-divider"></div>
+                <main class="contact-detail-content" id="contactDetailContent">
+                    <!-- 个人信息区 -->
+                    <section class="contact-detail-profile">
+                        <div class="contact-detail-avatar" id="contactDetailAvatar">
+                            <svg class="contact-detail-avatar-placeholder" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <div class="contact-detail-info">
+                            <div class="contact-detail-name" id="contactDetailName">名字</div>
+                            <div class="contact-detail-wechat" id="contactDetailWechat">微信号: 未设置</div>
+                        </div>
+                    </section>
+
+                    <!-- 图片展示区 -->
+                    <section class="contact-detail-gallery">
+                        <div class="contact-detail-gallery-grid" id="contactDetailGallery">
+                            <div class="contact-detail-gallery-item" data-index="0">
+                                <span class="contact-detail-gallery-placeholder">图片</span>
+                            </div>
+                            <div class="contact-detail-gallery-item" data-index="1">
+                                <span class="contact-detail-gallery-placeholder">图片</span>
+                            </div>
+                            <div class="contact-detail-gallery-item" data-index="2">
+                                <span class="contact-detail-gallery-placeholder">图片</span>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+                <footer class="contact-detail-footer">
+                    <button class="contact-detail-send-btn" id="contactDetailSendBtn">发消息</button>
+                </footer>
+            </div>
+        </div>
+
+    <!-- ⚠️ 这里必须加上 JS 引用！ -->
+    <script src="WeChat.js"></script>
+    <script src="ChatModule.js"></script>
+    <script src="MemoryModule.js"></script>
+    <script src="renshe.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
